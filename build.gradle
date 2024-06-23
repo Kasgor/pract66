@@ -16,6 +16,8 @@ dependencies {
     testImplementation 'io.cucumber:cucumber-java:7.18.0'
     testImplementation 'io.cucumber:cucumber-junit:7.18.0'
     testImplementation 'org.junit.platform:junit-platform-suite-api:1.8.2'
+    testImplementation 'org.assertj:assertj-core:3.21.0'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.21.0'
 
 }
 
