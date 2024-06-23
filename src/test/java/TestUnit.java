@@ -3,6 +3,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import steps.StepDefinitions;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -41,5 +45,37 @@ public class TestUnit {
         assertThat(1 + 1).isEqualTo(2);
     }
 
+    @Test
+    void testSelen(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.selenium.dev/selenium/web/web-form.html");
+        WebElement textBox = driver.findElement(By.name("my-text"));
+        assertEquals(true, textBox.isEnabled());
+        driver.quit();
 
+    }
+
+    @Test
+    void testSelen2(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.selenium.dev/selenium/web/web-form.html");
+        WebElement submitButton = driver.findElement(By.cssSelector("button"));
+        WebElement textBox = driver.findElement(By.name("my-text"));
+        textBox.sendKeys("AAAA");
+        submitButton.click();
+
+        WebElement message = driver.findElement(By.id("message"));
+        message.getText();
+        assertEquals("Received!", message.getText());
+        driver.quit();
+    }
+    @Test
+    void testSelen3(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.selenium.dev/selenium/web/web-form.html");
+        WebElement textBox = driver.findElement(By.name("my-text"));
+        textBox.sendKeys("AAAA!");
+        assertEquals("AAAA!", textBox.getAttribute("value"));
+        driver.quit();
+    }
 }
