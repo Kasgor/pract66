@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IsItFriday {
     static String isItFriday(String today) {
-        return "Friday".equals(today) ? "Yes" : "Nope";
+        return "Friday".equals(today) ? "Yes" : "Nope";// null тоді буде помилка очікується інша відповідь
     }
 }
 public class StepDefinitions {
